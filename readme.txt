@@ -53,15 +53,16 @@ define( 'MG_DEBUG_SMTP', true );
 Yes, using the following constants that can be placed in wp-config.php:
 
 `
-MAILGUN_USEAPI       Type: boolean
-MAILGUN_APIKEY       Type: string
-MAILGUN_DOMAIN       Type: string
-MAILGUN_USERNAME     Type: string
-MAILGUN_PASSWORD     Type: string
-MAILGUN_SECURE       Type: boolean
-MAILGUN_SECTYPE      Type: string   Choices: 'ssl' or 'tls'
-MAILGUN_FROM_NAME    Type: string
-MAILGUN_FROM_ADDRESS Type: string
+MAILGUN_USEAPI           Type: boolean
+MAILGUN_USE_EU_ENDPOINTS Type: boolean
+MAILGUN_APIKEY           Type: string
+MAILGUN_DOMAIN           Type: string
+MAILGUN_USERNAME         Type: string
+MAILGUN_PASSWORD         Type: string
+MAILGUN_SECURE           Type: boolean
+MAILGUN_SECTYPE          Type: string   Choices: 'ssl' or 'tls'
+MAILGUN_FROM_NAME        Type: string
+MAILGUN_FROM_ADDRESS     Type: string
 `
 
 - What hooks are available for use with other plugins?

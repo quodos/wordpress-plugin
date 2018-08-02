@@ -52,7 +52,7 @@ class Mailgun
         $this->options = get_option('mailgun');
         $this->plugin_file = __FILE__;
         $this->plugin_basename = plugin_basename($this->plugin_file);
-        $this->api_endpoint = 'https://api.mailgun.net/v3/';
+        $this->api_endpoint = (defined('MAILGUN_USEAPI') && MAILGUN_USEAPI === true) ? 'https://api.eu.mailgun.net/v3/' : 'https://api.mailgun.net/v3/';
 
         // Either override the wp_mail function or configure PHPMailer to use the
         // Mailgun SMTP servers
@@ -118,7 +118,7 @@ class Mailgun
         $password = (defined('MAILGUN_PASSWORD') && MAILGUN_PASSWORD) ? MAILGUN_PASSWORD : $this->get_option('password');
 
         $phpmailer->Mailer = 'smtp';
-        $phpmailer->Host = 'smtp.mailgun.org';
+        $phpmailer->Host = (defined('MAILGUN_USEAPI') && MAILGUN_USEAPI === true) ? 'smtp.eu.mailgun.org' : 'smtp.mailgun.org';
         $phpmailer->Port = (bool) $secure ? 465 : 587;
         $phpmailer->SMTPAuth = true;
         $phpmailer->Username = $username;

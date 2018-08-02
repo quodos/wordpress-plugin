@@ -357,7 +357,8 @@ function wp_mail($to, $subject, $message, $headers = '', $attachments = array())
         ),
     );
 
-    $url = "https://api.mailgun.net/v3/{$domain}/messages";
+    $api_endpoint = (defined('MAILGUN_USEAPI') && MAILGUN_USEAPI === true) ? 'https://api.eu.mailgun.net/v3' : 'https://api.mailgun.net/v3';
+    $url = "{$api_endpoint}/{$domain}/messages";
 
     // TODO: Mailgun only supports 1000 recipients per request, since we are
     // overriding this function, let's add looping here to handle that
